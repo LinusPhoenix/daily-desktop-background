@@ -7,7 +7,7 @@ This application only works on Windows (tested on Windows 10 64-bit, may work wi
 
 ## The Unsplash API
 
-Unsplash requires you to authorize when using their API, which means you need to register your application. In their API guidelines (as of June 2020), it says that applications "cannot replicate the core user experience of Unsplash (unofficial clients, **wallpaper applications**, etc.)" (emphasis mine). In an email I was told that this does apply to this particular project, but I could use it for personal use anyway (meaning "Demo" app classification and a limit of 50 requests/hour).  
+Unsplash requires you to authenticate yourself when using their API, which means you need to register your application. In their API guidelines (as of June 2020), it says that applications "cannot replicate the core user experience of Unsplash (unofficial clients, **wallpaper applications**, etc.)" (emphasis mine). In an email I was told that this does apply to this particular project, but I could use it for personal use anyway (meaning "Demo" app classification and a limit of 50 requests/hour).  
 This unfortunately means that you will need to get your own access key, which you can do so [here](https://unsplash.com/developers) (it's free), and build this project yourself if you want to use it.
 
 ## Building the project
