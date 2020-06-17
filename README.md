@@ -1,6 +1,7 @@
 # Daily Desktop Background
 
 A small .NET Core (3.1) application that changes your desktop wallpaper to a random image from [Unsplash](https://unsplash.com/), using their free API to get a random photo found when searching for "desktop background". Put a shortcut to the executable in your Autostart folder and enjoy a different desktop background everytime you boot up your PC!
+Inspiration for this project came from [40 Side Project Ideas for Software Engineers](https://www.codementor.io/@npostolovski/40-side-project-ideas-for-software-engineers-g8xckyxef) (idea #30).
 [Magick.NET](https://github.com/dlemstra/Magick.NET) is used to download the images from Unsplash and convert them to the BMP format.
 This application only works on Windows (tested on Windows 10 64-bit, may work without any issues on Windows 7 and beyond) since setting a wallpaper on Windows requires to interact with the registry.
 
