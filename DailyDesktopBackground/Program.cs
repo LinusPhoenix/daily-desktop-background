@@ -1,20 +1,28 @@
 ﻿using DailyDesktopBackground.Helper;
 using System;
+using System.IO;
+using System.Reflection;
 
 namespace DailyDesktopBackground
 {
-    class Program
+    public class Program
     {
-        private const string _wallpaper1 =
-            "https://images.unsplash.com/photo-1588288522163-375103610bbc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjE0MjcwNn0&w=1920";
-        private const string _wallpaper2 =
-            "https://images.unsplash.com/photo-1487837647815-bbc1f30cd0d2?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0MjcwNn0";
-
-        static void Main(string[] args)
+        public async static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            WallpaperHelper.SetWallpaper(
-                new Uri(_wallpaper2));
+            var accessKey = LoadAccessKey();
+            var unsplashApi = new UnsplashApiClient(accessKey);
+            var photo = await unsplashApi.GetRandomDesktopBackground();
+            WallpaperHelper.SetWallpaper(new Uri(photo.Urls.Full));
+            unsplashApi.CallDownloadTrackingEndpoint(photo);
+        }
+
+        private static string LoadAccessKey()
+        {
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            using (var stream = assembly.GetManifestResourceStream("DailyDesktopBackground..access-key"))
+            {
+                return new StreamReader(stream).ReadToEnd();
+            }
         }
     }
 }

@@ -13,6 +13,10 @@ This unfortunately means that you will need to get your own access key, which yo
 
 First, open `DailyDesktopBackground/.access-key` and replace the placeholder text there with your Unsplash API acess key. Make sure that nothing else is in that file.
 
-To build the project, a simple `dotnet build` in the root folder of the project should do it. Make sure to have a .NET Core SDK installed that supports .NET Core 2.2.
-If you want to compile the application into an executable, go for `dotnet publish -c Release -r $platform` where platform is the platform you want to target, e.g. `win10-x64`.
+To build the project, a simple `dotnet build` in the root folder of the project should do it. Make sure to have a .NET Core SDK installed that supports .NET Core 3.1.
+If you want to compile the application into a standalone executable, go for `dotnet publish -c Release -r $platform` where platform is the platform you want to target, e.g. `win10-x64`. You might need to remove the `RuntimeIdentifier` property from the `.csproj` project file to compile for x86 Windows platforms.
+
+## Was .NET Core **really** the right tool for the job?
+
+Not exactly, as you can see by the large size of the standalone executable. The multi-platform aspect of .NET Core does not apply to this project since we are limited to Windows anyway, however I wanted to work with a high-level language I know (C#) that could produce `.exe` files (unlike Java).
 
