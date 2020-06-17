@@ -15,7 +15,7 @@ This unfortunately means that you will need to get your own access key, which yo
 First, open `DailyDesktopBackground/.access-key` and replace the placeholder text there with your own Unsplash API acess key. Make sure that nothing else is in that file.
 
 To build the project, a simple `dotnet build` in the root folder of the project should do it. Make sure to have a .NET Core SDK installed that supports .NET Core 3.1.  
-If you want to compile the application into a standalone executable, go for `dotnet publish -c Release -r $platform` where platform is the platform you want to target, e.g. `win10-x64`. `dotnet publish -c Release` defaults to `win-x64`. You might need to remove the `RuntimeIdentifier` property from the `DailyDesktopBackground.csproj` project file to compile for x86 Windows platforms.
+If you want to compile the application into a standalone executable, go for `dotnet publish -c Release -r $platform` where `$platform` is the platform you want to target, e.g. `dotnet publish -c Release -r win10-x64`. `dotnet publish -c Release` defaults to the platform `win-x64`. You might need to remove the `RuntimeIdentifier` property from the `DailyDesktopBackground.csproj` project file to compile for x86 Windows platforms.
 
 ## Was .NET Core **really** the right tool for the job?
 
