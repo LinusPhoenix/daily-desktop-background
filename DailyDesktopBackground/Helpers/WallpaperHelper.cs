@@ -65,10 +65,8 @@ namespace DailyDesktopBackground.Helper
 
         private static MagickImage DownloadImage(Uri uri)
         {
-            using (var stream = new System.Net.WebClient().OpenRead(uri.ToString()))
-            {
-                return new MagickImage(stream);
-            }
+            using var stream = new System.Net.WebClient().OpenRead(uri.ToString());
+            return new MagickImage(stream);
         }
     }
 }

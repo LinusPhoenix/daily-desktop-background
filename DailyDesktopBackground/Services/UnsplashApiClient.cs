@@ -16,13 +16,10 @@ namespace DailyDesktopBackground.Helper
 
         private readonly HttpClient _client;
 
-        private string AccessKey { get; set; }
-
         public UnsplashApiClient(string accessKey)
         {
-            AccessKey = accessKey;
             _client = new HttpClient();
-            _client.DefaultRequestHeaders.Add("Authorization", $"Client-ID {AccessKey}");
+            _client.DefaultRequestHeaders.Add("Authorization", $"Client-ID {accessKey}");
         }
 
         /// <summary>
@@ -39,12 +36,11 @@ namespace DailyDesktopBackground.Helper
         /// <summary>
         /// When downloading a photo from Unsplash, clients are expected to call the download endpoint for tracking purposes.
         /// This method sends a GET request to that endpoint for the given photo asynchronously but returns immediately
-        /// since we do not care about the result.
+        /// since we do not care about the response.
         /// </summary>
         public void CallDownloadTrackingEndpoint(UnsplashPhoto photo)
         {
-            var endpointUrl = photo.Links.DownloadLocation;
-            _client.GetAsync(endpointUrl);
+            _client.GetAsync(photo.Links.DownloadLocation);
         }
     }
 }

@@ -2,12 +2,13 @@
 using System;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace DailyDesktopBackground
 {
     public class Program
     {
-        public async static void Main(string[] args)
+        public async static Task Main(string[] args)
         {
             var accessKey = LoadAccessKey();
             var unsplashApi = new UnsplashApiClient(accessKey);
@@ -18,11 +19,8 @@ namespace DailyDesktopBackground
 
         private static string LoadAccessKey()
         {
-            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            using (var stream = assembly.GetManifestResourceStream("DailyDesktopBackground..access-key"))
-            {
-                return new StreamReader(stream).ReadToEnd();
-            }
+            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("DailyDesktopBackground..access-key");
+            return new StreamReader(stream).ReadToEnd();
         }
     }
 }
