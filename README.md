@@ -24,3 +24,4 @@ If you want to compile the application into a standalone executable, go for `dot
 Not exactly, as you can see by the large size of the standalone executable (almost 85MB!). The multi-platform aspect of .NET Core does not apply to this project since we are limited to Windows anyway, however I wanted to work with a high-level language I know (C#) that could produce `.exe` files (unlike Java).  
 A lower level language like C or C++ should produce a much leaner and probably faster standalone executable. Maybe I will rewrite this in Rust.
 
+I also wrote a (multi-platform) version of this in Rust: [DailyDesktopBackground (Rust)](https://github.com/LinusPhoenix/daily-desktop-background-rust)
